@@ -28,7 +28,7 @@ from utils.util import get_timestamp
 from validation import epochVal, epochVal_metrics
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--root_path', type=str, default='../input/data-shin/skin', help='dataset root dir')
+parser.add_argument('--root_path', type=str, default='../input/data-skin/skin', help='dataset root dir')
 parser.add_argument('--csv_file_train', type=str, default="./test_code_of_skin/data/skin/training.csv", help='training set csv file')
 parser.add_argument('--csv_file_val', type=str, default="./test_code_of_skin/data/skin/validation.csv", help='validation set csv file')
 parser.add_argument('--csv_file_test', type=str, default="./test_code_of_skin/data/skin/testing.csv", help='testing set csv file')
