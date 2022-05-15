@@ -60,7 +60,7 @@ parser.add_argument('--num_classes', type=float,  default=7, help='num_classes')
 args = parser.parse_args()
 
 train_data_path = args.root_path
-snapshot_path = "./testcode_ChestX-ray14/model/" + args.exp + "/"
+snapshot_path = "./test_code_of_skin/model/" + args.exp + "/"
 
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
 batch_size = args.batch_size * len(args.gpu.split(','))
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         os.makedirs(snapshot_path + './checkpoint')
     if os.path.exists(snapshot_path + '/code'):
         shutil.rmtree(snapshot_path + '/code')
-    shutil.copytree('./testcode_ChestX-ray14/code', snapshot_path + '/code', shutil.ignore_patterns(['.git','__pycache__']))
+    shutil.copytree('./test_code_of_skin/code', snapshot_path + '/code', shutil.ignore_patterns(['.git','__pycache__']))
 
     logging.basicConfig(filename=snapshot_path+"/log.txt", level=logging.INFO,
                         format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%H:%M:%S')
