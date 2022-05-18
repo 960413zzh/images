@@ -406,7 +406,7 @@ class Focal_Loss(torch.nn.Module):
         high_th_weight = (torch.ones_like(pt) - pt)**2
         weights = torch.where(pt < threshold, low_th_weight, high_th_weight)
         # pt = torch.sum(pt, dim=1)
-        floss = weights*ce
+        floss = (CLASS_WEIGHT*weights*ce)/32
         floss = torch.sum(floss, dim=1)
         return torch.mean(floss)
 
