@@ -256,19 +256,7 @@ def relation_mse_loss(activations, ema_activations):
     """
 
     assert activations.size() == ema_activations.size()
-
-    activations = torch.reshape(activations, (activations.shape[0], -1))
-    ema_activations = torch.reshape(ema_activations, (ema_activations.shape[0], -1))
-
-    similarity = activations.mm(activations.t())
-    norm = torch.reshape(torch.norm(similarity, 2, 1), (-1, 1))
-    norm_similarity = similarity / norm
-
-    ema_similarity = ema_activations.mm(ema_activations.t())
-    ema_norm = torch.reshape(torch.norm(ema_similarity, 2, 1), (-1, 1))
-    ema_norm_similarity = ema_similarity / ema_norm
-
-    similarity_mse_loss = (norm_similarity-ema_norm_similarity)**2
+    similarity_mse_loss = (activations-ema_activations)**2
     return similarity_mse_loss
 
 
