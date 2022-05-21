@@ -240,7 +240,7 @@ if __name__ == "__main__":
                 consistency_dist = 0.0
              #+ consistency_loss
 
-            if (epoch > 20) and (args.ema_consistency == 1):
+            if (args.ema_consistency == 1):
                 loss = loss_classification + consistency_loss + consistency_relation_loss
 
             optimizer.zero_grad()
